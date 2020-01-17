@@ -1,50 +1,110 @@
-/* Step 1 import express
- *
- */
-const express = require('express')
+const express = require("express");
 
-/* Step 2
- *
- * Import the api files from the models
- *
- * TODO: change the file path to the models file you'll need to use.
- * TODO: rename this from `templateApi` to something more sensible (e.g:
- * `shopsAPI`)
- *
- * NOTE: You may need to import more than one API to create the 
- * controller you need.
- * 
- */
-const templateApi = require('../models/template.js')
 
-/* Step 3 
- * 
- * Create a new router.
- *
- * the router will "contain" all the request handlers that you define in this file.
- * TODO: rename this from templateRouter to something that makes sense. (e.g:
- * `shopRouter`)
- */
-const templateRouter = express.Router()
+const barberApi = require("../models/barber.js");
 
-/* Step 4
- * 
- * TODO: Put all request handlers here
- */
 
-/* Step 5
- *
- * TODO: delete this handler; it's just a sample
- */ 
-templateRouter.get('/', (req, res) => {
-  res.json(templateApi.getHelloWorldString())
-})
 
-/* Step 6
- *
- * Export the router from the file.
- *
- */
+const BarberRouter = express.Router();
+
+
+
+BarberRouter.get("/", (req, res) => {
+  barberApi
+    .getAllBarbers()
+    .then(allBarbers => {
+      res.render("barber/allBarbers", { allBarbers });
+    })
+    .catch(error => {
+      console.log(error);
+      res.send(error);
+    });
+});
+
+BarberRouter.get("/new", (req, res) => {
+  res.render("barber/createBarber");
+});
+
+BarberRouter.get("/edit/:id", (req, res) => {
+  const barberId = req.params.id;
+
+  barberApi
+    .getBarberById(barberId)
+    .then(barber => {
+      res.render("barber/editBarber", { barber });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+BarberRouter.get("/:id", (req, res) => {
+  const barberId = req.params.id;
+
+  barberApi
+    .getBarberById(barberId)
+    .then(barber => {
+      res.render("barber/singleBarber", { barber });
+    })
+    .catch(error => {
+      console.log(error);
+      res.send(error);
+    });
+});
+
+BarberRouter.post("/", (req, res) => {
+  const newBarber = req.body;
+
+  barberApi
+    .createBarber(newBarber)
+    .then(createdBarber => {
+      res.redirect("/barber");
+    })
+    .catch(error => {
+      console.log(error);
+      res.send(error);
+    });
+});
+
+BarberRouter.put("/:id", (req, res) => {
+  barberApi
+    .updateBarber(req.params.id, req.body)
+    .then(() => {
+      res.redirect(`/barber/${req.params.id}`);
+    })
+    .catch(error => {
+      console.log(error);
+      res.send(error);
+    });
+});
+
+BarberRouter.delete("/:id", (req, res) => {
+  const barberId = req.params.id;
+  barberApi
+    .deleteBarber(barberId)
+    .then(() => {
+      res.redirect("/barber");
+    })
+    .catch(error => {
+      console.log(error);
+      res.send(error);
+    });
+});
+
+BarberRouter.get("/byName/:name", (req, res) => {
+  const barberName = req.params.barberName;
+
+  barberApi
+    .getBarberByName(barberName)
+    .then(barbers => {
+      res.json(barbers);
+    })
+    .catch(error => {
+      console.log(error);
+      res.send(error);
+    });
+});
+
 module.exports = {
-  templateRouter
-}
+  BarberRouter
+};
