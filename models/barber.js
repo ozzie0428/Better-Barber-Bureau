@@ -1,57 +1,46 @@
-/* 
- * Place all functions, classes, and/or DB schemas here for a single 
- * model.
- */
+const mongoose = require("./connection.js");
 
-/* Step 1
- *
- * TODO: import mongoose connection
- * NOTE: skip this if you are not using mongoose
- *
- */
-//const mongoose = require('./connection.js')
 
-/* Step 1 alternative
- *
- * TODO: make a global variable to act as an in memory database. 
- * NOTE: doing this WILL NOT persist your data and you will loose
- * your data once you stop running your server.
- *
- */
-global.sampleModel = [];
+const BarberSchema = new mongoose.Schema({
+  name: String,
+ location: String,
+ servicesOffered: String,
+  ratings: Number,
+  price: Number
+  
+});
 
-/* Step 2
- *
- * TODO: create model schema 
- * NOTE: skip this if you are not using mongoose
- *
- */
-//const SampleModelSchema = new mongoose.Schema({
-//  name: String
-//})
+const BarberCollection = mongoose.model("barber", BarberSchema);
 
-/* Step 3
- *
- * TODO: create collection API
- * NOTE: skip this if you are not using mongoose
- *
- */
-//const SampleCollection = mongoose.model('Sample', SampleModelSchema)
+const getBarberById = id => {
+  return BarberCollection.findOne({ _id: id });
+};
 
-/* Step 4
- *
- * TODO: delete this it's just a sample
- *
- */
-function getHelloWorldString() {
-  return 'hello world'
-}
+const getAllBarbers = () => {
+  return BarberCollection.find({});
+};
 
-/* Step 5
- *
- * TODO: export all functions from this file by adding their names as keys to this
- * object
- */
+const getBarberByName = () => {
+  return BarberCollection.findOne({ name: name });
+};
+
+const createBarber = newBarber => {
+  return BarberCollection.create(newBarber);
+};
+
+const updateBarber = (id, updatedBarberObject) => {
+  return BarberCollection.updateOne({ _id: id }, updatedBarberObject);
+};
+
+const deleteBarber = id => {
+  return BarberCollection.deleteOne({ _id: id });
+};
 module.exports = {
-  getHelloWorldString
-}
+  getBarberById,
+  getAllBarbers,
+  createBarber,
+  updateBarber,
+  deleteBarber,
+  getBarberByName
+};
+
