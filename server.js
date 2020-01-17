@@ -1,77 +1,47 @@
-/* 
- * This is the template for a server.js file.  Follow the steps below and read
- * the comments for creating your own (or you can just copy this file).
- */
+const mongoose = require("mongoose");
+const express = require("express");
+const app = express();
+const methodOverride = require("method-override");
+const path = require("path");
 
-/* Step 1
- *
- * Import needed packages
- *
- */
-const express = require('express')
-const app = express()
+const { HomeRouter } = require("./controllers/home.js");
+const { EquipmentRouter } = require("./controllers/equipment.js");
+const { BarberRouter } = require("./controllers/barber.js");
+const { ReviewRouter } = require("./controllers/review.js");
 
-/* Step 2
- * 
- * import routers from controllers/
- *
- */
-const { templateRouter } = require('./controllers/template.js')
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
 
+app.use(express.urlencoded({ extended: true }));
 
-/* Step 3
- *
- * Register middleware...
- */
+app.use(express.json());
 
-/* Step 3.a
- * ...to parse the body of the HTTP requests from a URL encoded string 
- */
-app.use(express.urlencoded({extended: true}))
+app.use(methodOverride("_method"));
 
-/* Step 3.b 
- *
- * ...to parse the body of the HTTP requests from a JSON string  
- */
-app.use(express.json())
+app.use(express.static(__dirname + "/public"));
 
 
-/* Step 3.c
- *
- * use the `./client/build` directory to host static resources such as css and
- * image files 
- */
-app.use(express.static(`${__dirname}/client/build`))
 
+app.use("/", HomeRouter);
+app.use("/equipment", EquipmentRouter);
+app.use("/barber", BarberRouter);
+app.use("/review", ReviewRouter);
+// Connect to database
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect("mongodb://localhost/fantasy");
+}
+mongoose.connection.on("error", function(err) {
+  console.error("MongoDB connection error: " + err);
+  process.exit(-1);
+});
+mongoose.connection.once("open", function() {
+  console.log("Mongoose has connected to MongoDB!");
+});
 
-/* Step 4
- *
- * add router for the application to use. The first argument is a prefix to all
- * the paths defined in the router.
- */
-app.use('/api/helloworld', templateRouter)
+const PORT = process.env.PORT || 3001;
 
-/* Step 5
- *
- * add catch all route to serve up the built react app for any request not made to our
- * /api/... routes.
- */
-app.get('/*', (req, res) => {
-    res.sendFile(`${__dirname}/client/build/index.html`)
-})
-
-/* Step 6
- *
- * Set the port the server is to run on
- *
- * NOTE: keep these lines at the bottom of the file 
- */
-const PORT = process.env.PORT || 3001
-
-/* Step 7
- *
- * Start the server
- */
 app.listen(PORT, () => {
-    console.log(`App is listening on PORT ${PORT}`)
-})
+  console.log(`App is listening on PORT ${PORT}`);
+});
