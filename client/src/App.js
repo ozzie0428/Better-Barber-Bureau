@@ -10,21 +10,22 @@ export default class App extends Component {
   render() {
     return (
       <div>
-
-<nav>
+        <div className="nav-bar">
+      <nav className="nav-list">
           <ul>
             <li>Barbers</li>
             <li>Reviews</li>
             <li>Euipment Store</li>
           </ul>
         </nav>
-        
+        </div>
         <Router>
         <Switch>
           <Route exact path= "/" component={Home} />
-          <Route exact path= "/barber" component={Barber} />
-          <Route exact path= "/review" component={Review} />
-          <Route exact path= "/equipment/:supplyId" component={Equipment} />
+          <Route exact path= "/api/barber" component={Barber} />
+          {/* <Route exact path= "/api/barber/:barberId" component={Barber} /> */}
+          <Route exact path= "/api/review" component={Review} />
+          <Route exact path= "/api/equipment" component={Equipment} />
         </Switch>
 
         </Router>

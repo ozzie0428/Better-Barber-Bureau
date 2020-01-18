@@ -14,9 +14,9 @@ app.use(express.json());
 
 app.use(express.static(__dirname + "/public"));
 
-app.use("/equipment", EquipmentRouter);
-app.use("/barber", BarberRouter);
-app.use("/review", ReviewRouter);
+app.use("/api/equipment", EquipmentRouter);
+app.use("/api/barber", BarberRouter);
+app.use("/api/review", ReviewRouter);
 
 const PORT = process.env.PORT || 3001;
 

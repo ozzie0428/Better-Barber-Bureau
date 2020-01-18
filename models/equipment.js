@@ -3,8 +3,6 @@ const mongoose = require("./connection.js");
 
 const EquipmentSchema = new mongoose.Schema({
   name: String,
- rating: String,
-  college: String,
   image: String,
   description: String,
   price: Number

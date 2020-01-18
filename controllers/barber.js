@@ -13,7 +13,7 @@ BarberRouter.get("/", (req, res) => {
   barberApi
     .getAllBarbers()
     .then(allBarbers => {
-      res.render("barber/allBarbers", { allBarbers });
+      res.json(allBarbers );
     })
     .catch(error => {
       console.log(error);
@@ -21,22 +21,6 @@ BarberRouter.get("/", (req, res) => {
     });
 });
 
-BarberRouter.get("/new", (req, res) => {
-  res.render("barber/createBarber");
-});
-
-BarberRouter.get("/edit/:id", (req, res) => {
-  const barberId = req.params.id;
-
-  barberApi
-    .getBarberById(barberId)
-    .then(barber => {
-      res.render("barber/editBarber", { barber });
-    })
-    .catch(error => {
-      console.log(error);
-    });
-});
 
 BarberRouter.get("/:id", (req, res) => {
   const barberId = req.params.id;
@@ -44,7 +28,7 @@ BarberRouter.get("/:id", (req, res) => {
   barberApi
     .getBarberById(barberId)
     .then(barber => {
-      res.render("barber/singleBarber", { barber });
+      res.json(barber);
     })
     .catch(error => {
       console.log(error);
@@ -58,7 +42,7 @@ BarberRouter.post("/", (req, res) => {
   barberApi
     .createBarber(newBarber)
     .then(createdBarber => {
-      res.redirect("/barber");
+      res.json("/barber");
     })
     .catch(error => {
       console.log(error);
@@ -70,7 +54,7 @@ BarberRouter.put("/:id", (req, res) => {
   barberApi
     .updateBarber(req.params.id, req.body)
     .then(() => {
-      res.redirect(`/barber/${req.params.id}`);
+      res.json(`/barber/${req.params.id}`);
     })
     .catch(error => {
       console.log(error);
@@ -83,7 +67,7 @@ BarberRouter.delete("/:id", (req, res) => {
   barberApi
     .deleteBarber(barberId)
     .then(() => {
-      res.redirect("/barber");
+      res.json("/barber");
     })
     .catch(error => {
       console.log(error);
