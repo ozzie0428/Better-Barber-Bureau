@@ -6,7 +6,8 @@ const BarberSchema = new mongoose.Schema({
  location: String,
  servicesOffered: String,
   ratings: Number,
-  price: Number
+  price: Number,
+  picture: String
   
 });
 

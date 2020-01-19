@@ -1,14 +1,15 @@
 .nav-bar {
-  text-decoration: none;
-  height: 50px;
-  width: 100%;
-  background: #222;
-  color: white;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  align-items: center; 
-  padding: 0 12px;
+  
+    /* text-decoration: none; */
+    /* height: 50px; */
+    width: 100%;
+    background: #222;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    /* padding: 0 12px; */
 }
 
 .nav-list {

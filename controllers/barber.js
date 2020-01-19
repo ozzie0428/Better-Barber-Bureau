@@ -1,26 +1,20 @@
 const express = require("express");
 
-
 const barberApi = require("../models/barber.js");
 
-
-
 const BarberRouter = express.Router();
-
-
 
 BarberRouter.get("/", (req, res) => {
   barberApi
     .getAllBarbers()
     .then(allBarbers => {
-      res.json(allBarbers );
+      res.json(allBarbers);
     })
     .catch(error => {
       console.log(error);
       res.send(error);
     });
 });
-
 
 BarberRouter.get("/:id", (req, res) => {
   const barberId = req.params.id;
@@ -64,10 +58,11 @@ BarberRouter.put("/:id", (req, res) => {
 
 BarberRouter.delete("/:id", (req, res) => {
   const barberId = req.params.id;
+
   barberApi
     .deleteBarber(barberId)
     .then(() => {
-      res.json("/barber");
+      res.json({ success: true, deleted: barberId });
     })
     .catch(error => {
       console.log(error);

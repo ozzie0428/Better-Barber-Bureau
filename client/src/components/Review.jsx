@@ -31,8 +31,6 @@ export default class Review extends Component {
                  <div>
                     <button>Add review</button>
                     <h3>Cleanliness :</h3>
-                    <h3>Customer Satisfaction :</h3>
-                    <h3>Pricing :</h3>
                     <h3>Accuracy :</h3>
                     <h3>Overall Rating :</h3>
                     

@@ -1,20 +1,112 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import SingleBarber from "./SingleBarber";
+
 // import { BrowserRouter as Router, Switch, Route,} from "react-router-dom";
 export default class Barber extends Component {
   state = {
-    barberList: [],
+    barberList: [
+    //   {
+    //     _id: "12345",
+    //     name: "Ozzie",
+    //     location: "ATL",
+    //     servicesOffered: "egde, full cut",
+    //     ratings: "5",
+    //     price: "20",
+    //     picture:
+    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
+    //   },
+    //   {
+    //     _id: "12345",
+    //     name: "Jean",
+    //     location: "ATL",
+    //     servicesOffered: "egde, full cut",
+    //     ratings: "5",
+    //     price: "20",
+    //     picture:
+    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
+    //   },
+    //   {
+    //     _id: "12345",
+    //     name: "Ozzie",
+    //     location: "ATL",
+    //     servicesOffered: "egde, full cut",
+    //     ratings: "5",
+    //     price: "20",
+    //     picture:
+    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
+    //   },
+    //   {
+    //     _id: "12345",
+    //     name: "Ozzie",
+    //     location: "ATL",
+    //     servicesOffered: "egde, full cut",
+    //     ratings: "5",
+    //     price: "20",
+    //     picture:
+    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
+    //   },
+    //   {
+    //     _id: "12345",
+    //     name: "Ozzie",
+    //     location: "ATL",
+    //     servicesOffered: "egde, full cut",
+    //     ratings: "5",
+    //     price: "20",
+    //     picture:
+    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
+    //   },
+    //   {
+    //     _id: "12345",
+    //     name: "Ozzie",
+    //     location: "ATL",
+    //     servicesOffered: "egde, full cut",
+    //     ratings: "5",
+    //     price: "20",
+    //     picture:
+    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
+    //   },
+    //   {
+    //     _id: "12345",
+    //     name: "Ozzie",
+    //     location: "ATL",
+    //     servicesOffered: "egde, full cut",
+    //     ratings: "5",
+    //     price: "20",
+    //     picture:
+    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
+    //   },
+    //   {
+    //     _id: "12345",
+    //     name: "Ozzie",
+    //     location: "ATL",
+    //     servicesOffered: "egde, full cut",
+    //     ratings: "5",
+    //     price: "20",
+    //     picture:
+    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
+    //   },
+    //   {
+    //     _id: "12345",
+    //     name: "Ozzie",
+    //     location: "ATL",
+    //     servicesOffered: "egde, full cut",
+    //     ratings: "5",
+    //     price: "20",
+    //     picture:
+    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
+    //   }
+    ],
     newBarberName: "",
     location: "",
     servicesOffered: "",
     ratings: "",
-    price: 0
+    price: 0,
+    picture: ""
   };
-  componentDidMount() {
-    this.updateBarberPage();
-  }
+    componentDidMount() {
+      this.updateBarberPage();
+    }
 
   updateBarberPage = () => {
     axios.get("/api/barber").then(res => {
@@ -28,7 +120,8 @@ export default class Barber extends Component {
       location: this.state.location,
       servicesOffered: this.state.servicesOffered,
       ratings: this.state.ratings,
-      price: this.state.price
+      price: this.state.price,
+      picture: this.state.picture
     };
     axios.post("/api/barber", newBarber).then(() => {
       const newState = { ...this.state };
@@ -48,14 +141,21 @@ export default class Barber extends Component {
   };
 
   render() {
+    console.log("this.props", this.props);
     const barberList = this.state.barberList.map((barber, i) => {
       return (
         <div className="barber-container" key={i}>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3TQF-2FsOVYAxIDYEXjwGppI8VNBLOH2MxPxvuUzvvB2mN1xvEg&s" alt=""/>
-          <h1><Link to={`/${barber._id}`}>{barber.name}</Link></h1> 
-          <h2>{barber.location}</h2>
-          <h3>{barber.ratings}</h3>
-
+          <h1>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/api/barber/${barber._id}`}
+            >
+              Name: {barber.name}
+            </Link>
+          </h1>
+          <img src={barber.picture} alt="barber image" />
+          <h2>Location: {barber.location}</h2>
+          <h3>Rating: {barber.ratings} / 5 </h3>
         </div>
       );
     });
@@ -70,7 +170,7 @@ export default class Barber extends Component {
             onChange={this.handleChange}
             value={this.state.newBarberName}
           />
-              <input
+          <input
             type="string"
             name="location"
             placeholder="Add Location"
@@ -78,16 +178,56 @@ export default class Barber extends Component {
             onChange={this.handleChange}
             value={this.state.location}
           />
+          <input
+            type="string"
+            name="servicesOffered"
+            placeholder="Services"
+            required="required"
+            onChange={this.handleChange}
+            value={this.state.servicesOffered}
+          />
+          <input
+            type="string"
+            name="ratings"
+            placeholder="ratings"
+            required="required"
+            onChange={this.handleChange}
+            value={this.state.ratings}
+          />
+          <input
+            type="string"
+            name="price"
+            placeholder="price"
+            required="required"
+            onChange={this.handleChange}
+            value={this.state.price}
+          />
+          <input
+            type="string"
+            name="picture"
+            placeholder="Add picture"
+            required="required"
+            onChange={this.handleChange}
+            value={this.state.picture}
+          />
           <button onClick={this.createBarber}>Add Barber</button>
         </div>
-        <h1>Hello from Barber</h1>
-        {barberList}
+        
+        <div
+          className="barberParent"
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            flexWrap: "wrap"
+          }}
+        >
+          {barberList}
+        </div>
         {/* <Router>
             <Switch>
         <Route exact path= "/api/barber/:barberId" component={SingleBarber} />
         </Switch>
         </Router> */}
-        <SingleBarber/>
       </div>
     );
   }
