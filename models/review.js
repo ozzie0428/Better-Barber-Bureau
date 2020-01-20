@@ -1,16 +1,13 @@
 const mongoose = require("./connection.js");
 
-
 const ReviewSchema = new mongoose.Schema({
   name: String,
-  cleanliness: String,
-  customerSatisfaction: String,
-  pricing: Number,
+  cleanliness: Number,
   accuracy: Number,
   overallRating: Number,
   image: String,
-  
-
+  comment: String,
+  barberId: { type: String, required: true }
 });
 
 const ReviewCollection = mongoose.model("review", ReviewSchema);
@@ -26,7 +23,9 @@ const getAllReviews = () => {
 const getReviewByName = () => {
   return ReviewCollection.findOne({ name: name });
 };
-
+const findReviewByBarberId = id => {
+  return ReviewCollection.find({ barberId: id });
+};
 const createReview = newReview => {
   return ReviewCollection.create(newReview);
 };
@@ -44,5 +43,6 @@ module.exports = {
   createReview,
   updateReview,
   deleteReview,
-  getReviewByName
+  getReviewByName,
+  findReviewByBarberId
 };
