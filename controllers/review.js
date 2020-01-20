@@ -1,40 +1,18 @@
 const express = require("express");
 
-
 const reviewApi = require("../models/review.js");
 
-
-
 const ReviewRouter = express.Router();
-
-
 
 ReviewRouter.get("/", (req, res) => {
   reviewApi
     .getAllReviews()
     .then(allReviews => {
-      res.render("review/allReviews", { allReviews });
+      res.json(allReviews);
     })
     .catch(error => {
       console.log(error);
       res.send(error);
-    });
-});
-
-ReviewRouter.get("/new", (req, res) => {
-  res.render("review/createReview");
-});
-
-ReviewRouter.get("/edit/:id", (req, res) => {
-  const reviewId = req.params.id;
-
-  reviewApi
-    .getReviewById(reviewId)
-    .then(review => {
-      res.render("review/editReview", { review });
-    })
-    .catch(error => {
-      console.log(error);
     });
 });
 
@@ -44,7 +22,7 @@ ReviewRouter.get("/:id", (req, res) => {
   reviewApi
     .getReviewById(reviewId)
     .then(review => {
-      res.render("review/singleReview", { review });
+      res.json(review);
     })
     .catch(error => {
       console.log(error);
@@ -52,13 +30,19 @@ ReviewRouter.get("/:id", (req, res) => {
     });
 });
 
-ReviewRouter.post("/", (req, res) => {
+ReviewRouter.post("/:barberId", (req, res) => {
+  var barberId = req.params.barberId;
   const newReview = req.body;
+  const overallRating = (newReview.cleanliness + newReview.accuracy) / 2;
+
+  newReview.overallRating = overallRating;
+  newReview.barberId = barberId;
 
   reviewApi
+
     .createReview(newReview)
     .then(createdReview => {
-      res.redirect("/review");
+      res.json({ succes: true, message: "new review added", createdReview });
     })
     .catch(error => {
       console.log(error);
@@ -66,11 +50,24 @@ ReviewRouter.post("/", (req, res) => {
     });
 });
 
+ReviewRouter.get("/allreviews/:barberId", (req, res) => {
+  const barberId = req.params.barberId;
+
+  reviewApi
+    .findReviewByBarberId(barberId)
+    .then(response => {
+      res.send(response);
+    })
+    .catch(error => {
+      console.log(error.message);
+      res.status(404).send(error.message);
+    });
+});
 ReviewRouter.put("/:id", (req, res) => {
   reviewApi
     .updateReview(req.params.id, req.body)
     .then(() => {
-      res.redirect(`/review/${req.params.id}`);
+      res.json(`/review/${req.params.id}`);
     })
     .catch(error => {
       console.log(error);
@@ -83,7 +80,7 @@ ReviewRouter.delete("/:id", (req, res) => {
   reviewApi
     .deleteReview(reviewId)
     .then(() => {
-      res.redirect("/review");
+      res.json({ success: true, deleted: barberId });
     })
     .catch(error => {
       console.log(error);
