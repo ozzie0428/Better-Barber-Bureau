@@ -26,7 +26,11 @@
   /* padding: 15px; */
   border-image: url(https://ak5.picdn.net/shutterstock/videos/21343525/thumb/7.jpg) 50 round;
 }
-
+.single-barber-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 25%;
+}
 
 .review-submit {
   text-align: center;
@@ -101,7 +105,7 @@
 }
 
 .baber-info h1 {
-  margin-left: 55%;
+  /* margin-left: 55%; */
   text-shadow: 2px 2px black;
     color: darkblue;
 }
@@ -114,6 +118,7 @@
     border-image: url(https://ak5.picdn.net/shutterstock/videos/21343525/thumb/7.jpg) 50 round;
     text-shadow: 2px 2px black;
     color: darkblue;
+    /* margin-left: 40%  */
 }
 
 .barber-review strong {
@@ -128,13 +133,27 @@
   text-decoration: underline;
 }
 .barber-location{
-  margin-left: 55%;
+  /* margin-left: 55%; */
   text-shadow: 2px 2px black;
     color: darkblue;
 }
 
 .single-barber-img{
-  width: 60%;
-  margin-left: 47%;
-  
+  /* margin-left: 130%; */
+    /* float:  left; */
+    width:  500x;
+    height: 500px;
+    /* background-size: cover; */
 }
+
+
+.delete-barber {
+  display: table;
+  margin-top: 50%;
+  margin-left: 20%;
+}
+
+/* margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px; */

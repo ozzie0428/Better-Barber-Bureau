@@ -89,45 +89,40 @@ export default class SingleBarber extends Component {
     if (this.state.isDeleted === true) {
       return <Redirect to="/api/barber" />;
     }
-    const picture =
-      "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg";
+  
     return (
-      <div
-        style={{
-          display: "flex",
-          /* align-content: center; */
-          justifyContent: "space-evenly"
-        }}
-      >
+      <div className="single-barber-container">
 
-
+        
         <div className="baber-info">
             <h1>Name: {this.state.barber.name}</h1>
           <img className="single-barber-img" src={this.state.barber.picture} alt="picture-of-barber" />
           <div >
             <div className="barber-location">
-            <h3>Shop Location: {this.state.barber.location}</h3>
-            <h3>Sevices Offered: {this.state.barber.servicesOffered}</h3>
+            <h2>Shop Location: {this.state.barber.location}</h2>
+            <h2>Sevices Offered: {this.state.barber.servicesOffered}</h2>
             </div>
-            <button></button>
+            
           </div>
         </div>
         <div className="barber-review">
           <h1>Reviews</h1>
           <h2>Cleanliness: <strong>{this.state.cleanlinessRating}</strong></h2>
           <h2>Accuracy: <strong>{this.state.accuracyRating}</strong> </h2>
-          <h2 style={{ paddingBottom: "50%" }}>
+          <h2>
             Overall Rating:
             <strong>  {this.state.overallRating}
             </strong>  </h2>
           <Link to={`/api/review/${this.state.barber._id}`}>
             <button>Leave Review</button>
+            <div className="delete-barber">
+          <button onClick={() => this.BarberDelete(this.state.barberId)}>
+          Delete Barber
+        </button>
+        </div>
           </Link>
         </div>
-        {/* <h1>HELLO FROM SINGLE BARBER </h1>
-                <button onClick={() => this.BarberDelete(this.state.barberId)}>
-          Delete Barber
-        </button> */}
+        
       </div>
     );
   }
