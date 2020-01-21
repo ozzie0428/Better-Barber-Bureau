@@ -94,10 +94,8 @@ export default class Review extends Component {
 
           <div className="review-container">
             <div className="review-btn">
-              <button onClick={this.createReview}>
-                {" "}
-                <h4>Add review</h4>
-              </button>
+              <a href={`/api/barber/${this.props.match.params.barberId}`}>Back To Barber</a>
+
             </div>
             <div>
               <input
@@ -130,8 +128,8 @@ export default class Review extends Component {
                 onChange={this.handleChange}
                 value={this.state.comment}
               />
-              <button onClick={this.createReview}>Submit Comment</button>
             </div>
+              <button onClick={this.createReview}>Submit Comment</button>
             {/* <div>
               <input
                 type="number"
