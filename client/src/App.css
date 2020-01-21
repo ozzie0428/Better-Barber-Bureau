@@ -22,3 +22,44 @@
   align-items: center;
   padding: 20px 0;
 } */
+
+.review-submit {
+  text-align: center;
+ 
+}
+
+.container-container {
+  display:flex;
+  justify-content:space-around;
+}
+
+.comment-container {
+  width: 55%;
+  padding-bottom: 40vh;
+  border: 2px solid black;
+}
+.comment-container h1 {
+  padding-left: 35%;
+}
+.comment-container p {
+  padding: 3%;
+}
+.img-container img {
+  width: 111px;
+}
+
+.img-container{
+  display: block;
+  justify-content: center;
+  padding-left: 35%;
+}
+
+.review-container {
+  border: 2px solid black;
+  width: 20%;
+  padding-left: 1%;
+}
+
+.review-btn {
+  padding-left: 35%;
+}

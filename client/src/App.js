@@ -4,8 +4,10 @@ import './App.css';
 import Home from './components/Home'
 import Barber from './components/Barber'
 import SingleBarber from "./components/SingleBarber";
-import Review from './components/Review'
-import Equipment from './components/Equipment'
+import Review from './components/Review';
+import Equipment from './components/Equipment';
+import SingleEquipment from './components/SingleEquipment'
+// import {Link} from "react-router-dom"
 
 export default class App extends Component {
   render() {
@@ -13,10 +15,11 @@ export default class App extends Component {
       <div>
         <div className="nav-bar">
       
-          
-            <h3>Barbers</h3>
-            <h3>Reviews</h3>
-            <h3>Euipment Store</h3>
+        <a href="/api/barber/"><h3>Barbers</h3></a>   
+        <a href="/api/"><h3>Home</h3></a>
+        <a href="/api/equipment"><h3>Euipment Store</h3></a>
+            
+            
           
       
         </div>
@@ -27,6 +30,7 @@ export default class App extends Component {
           //   alignContent: "center"
           // }}
         >
+        <div className="img-container">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3TQF-2FsOVYAxIDYEXjwGppI8VNBLOH2MxPxvuUzvvB2mN1xvEg&s"
             alt=""
@@ -38,14 +42,17 @@ export default class App extends Component {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3TQF-2FsOVYAxIDYEXjwGppI8VNBLOH2MxPxvuUzvvB2mN1xvEg&s"
             alt=""
           />
+          </div>
         </div>
         <Router>
         <Switch>
           <Route exact path= "/" component={Home} />
           <Route exact path= "/api/barber" component={Barber} />
           <Route exact path= "/api/barber/:barberId" component={SingleBarber} />
-          <Route exact path= "/api/review" component={Review} />
+          {/* <Route exact path= "/api/review" component={Review} /> */}
+          <Route path= "/api/review/:barberId" component={Review} />
           <Route exact path= "/api/equipment" component={Equipment} />
+          <Route exact path= "/api/equipment/:equipmentId" component={SingleEquipment} />
         </Switch>
 
         </Router>

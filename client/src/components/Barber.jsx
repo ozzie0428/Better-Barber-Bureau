@@ -5,104 +5,14 @@ import { Link } from "react-router-dom";
 // import { BrowserRouter as Router, Switch, Route,} from "react-router-dom";
 export default class Barber extends Component {
   state = {
-    barberList: [
-    //   {
-    //     _id: "12345",
-    //     name: "Ozzie",
-    //     location: "ATL",
-    //     servicesOffered: "egde, full cut",
-    //     ratings: "5",
-    //     price: "20",
-    //     picture:
-    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
-    //   },
-    //   {
-    //     _id: "12345",
-    //     name: "Jean",
-    //     location: "ATL",
-    //     servicesOffered: "egde, full cut",
-    //     ratings: "5",
-    //     price: "20",
-    //     picture:
-    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
-    //   },
-    //   {
-    //     _id: "12345",
-    //     name: "Ozzie",
-    //     location: "ATL",
-    //     servicesOffered: "egde, full cut",
-    //     ratings: "5",
-    //     price: "20",
-    //     picture:
-    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
-    //   },
-    //   {
-    //     _id: "12345",
-    //     name: "Ozzie",
-    //     location: "ATL",
-    //     servicesOffered: "egde, full cut",
-    //     ratings: "5",
-    //     price: "20",
-    //     picture:
-    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
-    //   },
-    //   {
-    //     _id: "12345",
-    //     name: "Ozzie",
-    //     location: "ATL",
-    //     servicesOffered: "egde, full cut",
-    //     ratings: "5",
-    //     price: "20",
-    //     picture:
-    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
-    //   },
-    //   {
-    //     _id: "12345",
-    //     name: "Ozzie",
-    //     location: "ATL",
-    //     servicesOffered: "egde, full cut",
-    //     ratings: "5",
-    //     price: "20",
-    //     picture:
-    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
-    //   },
-    //   {
-    //     _id: "12345",
-    //     name: "Ozzie",
-    //     location: "ATL",
-    //     servicesOffered: "egde, full cut",
-    //     ratings: "5",
-    //     price: "20",
-    //     picture:
-    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
-    //   },
-    //   {
-    //     _id: "12345",
-    //     name: "Ozzie",
-    //     location: "ATL",
-    //     servicesOffered: "egde, full cut",
-    //     ratings: "5",
-    //     price: "20",
-    //     picture:
-    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
-    //   },
-    //   {
-    //     _id: "12345",
-    //     name: "Ozzie",
-    //     location: "ATL",
-    //     servicesOffered: "egde, full cut",
-    //     ratings: "5",
-    //     price: "20",
-    //     picture:
-    //       "https://s3-media0.fl.yelpcdn.com/bphoto/9iMONV6ohccMoshgE2GAuw/ls.jpg"
-    //   }
-    ],
+    barberList: [] ,
     newBarberName: "",
     location: "",
     servicesOffered: "",
     ratings: "",
     price: 0,
-    picture: ""
+    picture: "",
+    reviews: []
   };
     componentDidMount() {
       this.updateBarberPage();

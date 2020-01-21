@@ -7,8 +7,8 @@ const BarberSchema = new mongoose.Schema({
  servicesOffered: String,
   ratings: Number,
   price: Number,
-  picture: String
-  
+  picture: String,
+  // reviews:[ ReviewSchema]
 });
 
 const BarberCollection = mongoose.model("barber", BarberSchema);
