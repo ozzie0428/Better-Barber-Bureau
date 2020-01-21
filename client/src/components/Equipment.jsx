@@ -17,7 +17,7 @@ export default class Equipment extends Component {
 	
 	  updateEquipmentPage = () => {
 		axios.get("/api/equipment").then(res => {
-		  console.log("res.data", res.data);
+		 
 		  this.setState({ equipmentList: res.data });
 		});
 	  };
@@ -44,7 +44,7 @@ export default class Equipment extends Component {
 	  };
 	
 	  render() {
-		console.log("this.props", this.props);
+		
 		const equipmentList = this.state.equipmentList.map((equipment, i) => {
 		  return (
 			<div className="equipment-container" key={i}>

@@ -27,10 +27,10 @@ export default class SingleBarber extends Component {
   }
 
   singleBarber = () => {
-    // console.log("VAlUE",this.props.match)
+    
     const barberId = this.props.match.params.barberId;
     axios.get(`/api/barber/${barberId}`).then(res => {
-      // console.log("single barber response", res.data);
+      
       this.setState({
         barber: res.data
       });
@@ -54,7 +54,7 @@ export default class SingleBarber extends Component {
       const cleanlinessRating = this.mathSolver(cleanlinessArray);
       let overallRating = (accuracyRating + cleanlinessRating) / 2;
       overallRating = this.decimalREmover(overallRating);
-      
+
       this.setState({ accuracyRating, cleanlinessRating, overallRating });
     } catch (error) {
       console.log(error);
@@ -79,14 +79,13 @@ export default class SingleBarber extends Component {
 
   BarberDelete = barberId => {
     axios.delete(`/api/barber/${barberId}`).then(res => {
-      console.log("PROPS", this.props);
-      console.log("Barber Deleted");
+     
       this.setState({ isDeleted: true });
     });
   };
 
   render() {
-    // console.log("BARBER", this.props);
+    
     if (this.state.isDeleted === true) {
       return <Redirect to="/api/barber" />;
     }

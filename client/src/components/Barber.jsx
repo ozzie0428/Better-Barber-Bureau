@@ -20,7 +20,6 @@ export default class Barber extends Component {
 
   updateBarberPage = () => {
     axios.get("/api/barber").then(res => {
-      console.log("res.data", res.data);
       this.setState({ barberList: res.data });
     });
   };
@@ -51,7 +50,7 @@ export default class Barber extends Component {
   };
 
   render() {
-    console.log("this.props", this.props);
+    
     const barberList = this.state.barberList.map((barber, i) => {
       return (
         <div className="barber-container" key={i}>
@@ -65,7 +64,6 @@ export default class Barber extends Component {
           </h1>
           <img src={barber.picture} alt="barber image" />
           <h2>Location: {barber.location}</h2>
-          <h3>Rating: {barber.ratings} / 5 </h3>
         </div>
       );
     });

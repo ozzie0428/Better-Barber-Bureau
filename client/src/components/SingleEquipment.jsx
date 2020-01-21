@@ -20,10 +20,10 @@ export default class EquipmentItem extends Component {
       }
     
       singleEquipment = () => {
-        // console.log("VAlUE",this.props.match)
+        
         const equipmentId = this.props.match.params.equipmentId;
         axios.get(`/api/equipment/${equipmentId}`).then(res => {
-            console.log("single equipment response", res.data);
+           
           this.setState({
             equipment: res.data
           });
@@ -31,8 +31,7 @@ export default class EquipmentItem extends Component {
       };
       EquipmentDelete = equipmentId => {
         axios.delete(`/api/equipment/${equipmentId}`).then(res => {
-          console.log("PROPS", this.props);
-          console.log("Equipment Deleted");
+        
           this.setState({ isDeleted: true });
         });
       };

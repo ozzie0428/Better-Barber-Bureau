@@ -59,7 +59,7 @@ export default class Review extends Component {
   };
 
   commentClick = () => {
-    console.log("button has been clicked");
+   
   };
   render() {
     const commentList = this.state.commentList.map((review, i) => {
