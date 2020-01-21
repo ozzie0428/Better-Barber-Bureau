@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(https://images.squarespace-cdn.com/content/v1/583b488f579fb36e9c9ab45b/1481504914231-CIXOP0XUJL63UBJWTR00/ke17ZwdGBToddI8pDm48kIZ80pXzhsplME5I17_dyqsUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcXa4tHz7eMGanDjEwPR9LJ1waP3CQFFieORTVTr7M93fXejltG4zwg4SLJuvzYoRu/hills+barber+stock+background.jpg.jpeg?format=2500w);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 }
 
 code {

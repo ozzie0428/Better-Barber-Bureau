@@ -109,6 +109,7 @@ export default class SingleBarber extends Component {
             <h3>Name: {this.state.barber.name}</h3>
             <h3>Shop Location: {this.state.barber.location}</h3>
             <h3>Sevices Offered: {this.state.barber.servicesOffered}</h3>
+            <button></button>
           </div>
         </div>
         <div style={{ border: "1px solid black" }}>

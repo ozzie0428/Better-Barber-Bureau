@@ -1,12 +1,10 @@
-const mongoose = require("./connection.js");
-
+const mongoose = require("mongoose");
 
 const EquipmentSchema = new mongoose.Schema({
   name: String,
   image: String,
   description: String,
   price: Number
-
 });
 
 const EquipmentCollection = mongoose.model("equipment", EquipmentSchema);
@@ -40,5 +38,6 @@ module.exports = {
   createEquipment,
   updateEquipment,
   deleteEquipment,
-  getEquipmentByName
+  getEquipmentByName,
+  EquipmentCollection
 };

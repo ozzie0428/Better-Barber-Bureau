@@ -1,4 +1,4 @@
-const mongoose = require("./connection.js");
+const mongoose = require("mongoose");
 
 const ReviewSchema = new mongoose.Schema({
   name: String,
@@ -44,5 +44,6 @@ module.exports = {
   updateReview,
   deleteReview,
   getReviewByName,
-  findReviewByBarberId
+  findReviewByBarberId,
+  ReviewCollection
 };

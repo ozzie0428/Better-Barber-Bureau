@@ -19,7 +19,12 @@ app.use("/api/barber", BarberRouter);
 app.use("/api/review", ReviewRouter);
 
 const PORT = process.env.PORT || 3001;
+const connectionString =
+  process.env.MONGODB_URI || "mongodb://localhost/barber";
 
-app.listen(PORT, () => {
-  console.log(`App is listening on PORT ${PORT}`);
+mongoose.connect(connectionString, { useNewUrlParser: true }).then(() => {
+  console.log("Connected To MongoDB : " + connectionString);
+  app.listen(PORT, () => {
+    console.log(`Server is running on PORT ${PORT}`);
+  });
 });

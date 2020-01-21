@@ -1,4 +1,5 @@
-const mongoose = require("./connection.js");
+
+const mongoose = require("mongoose");
 
 
 const BarberSchema = new mongoose.Schema({
@@ -11,7 +12,7 @@ const BarberSchema = new mongoose.Schema({
   // reviews:[ ReviewSchema]
 });
 
-const BarberCollection = mongoose.model("barber", BarberSchema);
+ const BarberCollection = mongoose.model("barber", BarberSchema);
 
 const getBarberById = id => {
   return BarberCollection.findOne({ _id: id });
@@ -42,6 +43,7 @@ module.exports = {
   createBarber,
   updateBarber,
   deleteBarber,
-  getBarberByName
+  getBarberByName,
+  BarberCollection
 };
 

@@ -54,6 +54,8 @@ export default class Barber extends Component {
     const barberList = this.state.barberList.map((barber, i) => {
       return (
         <div className="barber-container" key={i}>
+          <div>
+
           <h1>
             <Link
               style={{ textDecoration: "none" }}
@@ -62,14 +64,20 @@ export default class Barber extends Component {
               Name: {barber.name}
             </Link>
           </h1>
-          <img src={barber.picture} alt="barber image" />
-          <h2>Location: {barber.location}</h2>
+          
+          </div>
+          <img className="barber-img" src={barber.picture} alt="barber image" />
+          <div>
+
+          <h2>Location: <br/>
+          {barber.location}</h2>
+          </div>
         </div>
       );
     });
     return (
       <div>
-        <div>
+        <div className="barber-input">
           <input
             type="string"
             name="newBarberName"
@@ -94,14 +102,7 @@ export default class Barber extends Component {
             onChange={this.handleChange}
             value={this.state.servicesOffered}
           />
-          <input
-            type="string"
-            name="ratings"
-            placeholder="ratings"
-            required="required"
-            onChange={this.handleChange}
-            value={this.state.ratings}
-          />
+        
           <input
             type="string"
             name="price"

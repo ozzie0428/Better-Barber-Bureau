@@ -16,12 +16,17 @@
   color: white;
   text-decoration: none
 }
-/* .barber-container{
-  display: flex;
+.barber-container{
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
-} */
+  padding: 20px 0; */
+  width: 28%;
+  border: 7px solid transparent;
+  padding: 15px;
+  border-image: url(https://ak5.picdn.net/shutterstock/videos/21343525/thumb/7.jpg) 50 round;
+}
+
 
 .review-submit {
   text-align: center;
@@ -62,4 +67,34 @@
 
 .review-btn {
   padding-left: 35%;
+}
+
+.barber-img {
+  max-width: 35%;
+  height: auto;
+  padding-left: 30%;
+}
+
+.barber-input {
+  padding-left: 20%
+}
+
+.h1 Link {
+  color: black;
+}
+.barber-container h2 {
+  text-shadow: 2px 2px black;
+    color: red;
+    padding-left: 30%
+}
+
+.barber-container h1 {
+ padding-left: 15%;
+}
+.barber-input {
+  padding-bottom: 2%;
+}
+.barber-container a {
+  text-shadow: 2px 2px black;
+    color: darkblue;
 }
