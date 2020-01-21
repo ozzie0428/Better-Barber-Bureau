@@ -17,7 +17,7 @@ export default class App extends Component {
           <a href="/api/barber/">
             <h3>Barbers</h3>
           </a>
-          <a href="/api/">
+          <a href="/">
             <h3>Home</h3>
           </a>
           <a href="/api/equipment">
@@ -45,6 +45,11 @@ export default class App extends Component {
               alt=""
             />
           </div>
+
+          {/* <h1>Better Barber Bureau</h1> 
+        
+          <p>The place where to find a barber in your area without the hassle of </p> */}
+
         </div>
         <Router>
           <Switch>
@@ -58,10 +63,7 @@ export default class App extends Component {
             {/* <Route exact path= "/api/review" component={Review} /> */}
             <Route path="/api/review/:barberId" component={Review} />
             <Route exact path="/api/equipment" component={Equipment} />
-            <Route
-              exact
-              path="/api/equipment/:equipmentId"
-              component={SingleEquipment}
+            <Route exact path="/api/equipment/:equipmentId"component={SingleEquipment}
             />
           </Switch>
         </Router>

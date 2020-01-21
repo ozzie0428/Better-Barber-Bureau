@@ -99,27 +99,27 @@ export default class SingleBarber extends Component {
           justifyContent: "space-evenly"
         }}
       >
-        <div>
-          <h1>Barber</h1>
-        </div>
 
-        <div style={{ width: "12vw" }}>
-          <img src={this.state.barber.picture} alt="picture-of-barber" />
-          <div style={{ width: "35vw" }}>
-            <h3>Name: {this.state.barber.name}</h3>
+
+        <div className="baber-info">
+            <h1>Name: {this.state.barber.name}</h1>
+          <img className="single-barber-img" src={this.state.barber.picture} alt="picture-of-barber" />
+          <div >
+            <div className="barber-location">
             <h3>Shop Location: {this.state.barber.location}</h3>
             <h3>Sevices Offered: {this.state.barber.servicesOffered}</h3>
+            </div>
             <button></button>
           </div>
         </div>
-        <div style={{ border: "1px solid black" }}>
+        <div className="barber-review">
           <h1>Reviews</h1>
-          <h3>Cleanliness:{this.state.cleanlinessRating}</h3>
-          <h3>Accuracy: {this.state.accuracyRating}</h3>
-          <h3 style={{ paddingBottom: "50%" }}>
+          <h2>Cleanliness: <strong>{this.state.cleanlinessRating}</strong></h2>
+          <h2>Accuracy: <strong>{this.state.accuracyRating}</strong> </h2>
+          <h2 style={{ paddingBottom: "50%" }}>
             Overall Rating:
-            {this.state.overallRating}
-          </h3>
+            <strong>  {this.state.overallRating}
+            </strong>  </h2>
           <Link to={`/api/review/${this.state.barber._id}`}>
             <button>Leave Review</button>
           </Link>
