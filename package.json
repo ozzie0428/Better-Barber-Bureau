@@ -18,7 +18,8 @@
     "start": "node server.js",
     "postinstall": "cd client && npm i && npm run build",
     "server": "nodemon server.js",
-    "seed": "node ./models/seed.js"
+    "seed": "node ./models/seed.js",
+    "frontEnd" : "cd client && npm run start"
   },
   "author": "",
   "license": "ISC"

@@ -51,7 +51,7 @@ export default class Barber extends Component {
 
   render() {
     
-    const barberList = this.state.barberList.map((barber, i) => {
+    const barberList = this.state.barberList && this.state.barberList.map((barber, i) => {
       return (
         <div className="barber-container" key={i}>
           <div>
