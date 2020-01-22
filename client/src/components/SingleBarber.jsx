@@ -23,7 +23,7 @@ export default class SingleBarber extends Component {
 
   componentDidMount() {
     this.singleBarber();
-    // this.singleBarberReviews();
+    this.singleBarberReviews();
   }
 
   singleBarber = () => {

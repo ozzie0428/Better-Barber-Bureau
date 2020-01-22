@@ -16,7 +16,7 @@ export default class Review extends Component {
   }
 
   updateReviewPage = () => {
-    // /api/review/allreviews/5e23b994ad30862cdc72f99b/
+    
     const barberId = this.props.match.params.barberId;
     axios.get(`/api/review/allreviews/${barberId}`).then(res => {
       this.setState({ commentList: res.data });
@@ -65,15 +65,9 @@ export default class Review extends Component {
     const commentList = this.state.commentList.map((review, i) => {
       return (
         <div key={i}>
-          {/* <Link */}
-          {/* style={{ textDecoration: "none" }}
-                // to={`/api/barber/${barber._id}`}
-              > */}
+          
           Barber Comment: {review.comment}
-          {/* </Link> */}
-          {/* <img src={barber.picture} alt="barber image" /> */}
-          {/* <h2>Location: {barber.location}</h2> */}
-          {/* <h3>Rating: {barber.ratings} / 5 </h3> */}
+          
         </div>
       );
     });
@@ -83,12 +77,12 @@ export default class Review extends Component {
         <div className="review-submit">
           <h1> REVIEWS</h1>
 
-          {/* <div>{this.state.comment}</div> */}
+          
         </div>
         <div className="container-container">
           <div className="comment-container">
             <h1>Comments:</h1>
-            {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, facere numquam. <br/> Magnam explicabo ipsam laudantium. Sint, modi rem debitis maiores repellendus, <br/> recusandae eaque molestiae asperiores pariatur illum dolorem veritatis alias.</p> */}
+           
            <div className="comment-list">
             {commentList}
             </div>
@@ -135,17 +129,7 @@ export default class Review extends Component {
               />
             </div>
               <button onClick={this.createReview}>Submit Comment</button>
-            {/* <div>
-              <input
-                type="number"
-                name="overallRating"
-                placeholder="Rate Overall Rating"
-                required="required"
-                onChange={this.handleChange}
-                value={this.state.overallRating}
-              />
-              <h3>Overall Rating : {this.state.overallRating}</h3>
-            </div> */}
+            
           </div>
           </div>
         </div>

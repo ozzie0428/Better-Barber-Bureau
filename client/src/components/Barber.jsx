@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-// import { BrowserRouter as Router, Switch, Route,} from "react-router-dom";
+
 export default class Barber extends Component {
   state = {
     barberList: [] ,
@@ -132,11 +132,7 @@ export default class Barber extends Component {
         >
           {barberList}
         </div>
-        {/* <Router>
-            <Switch>
-        <Route exact path= "/api/barber/:barberId" component={SingleBarber} />
-        </Switch>
-        </Router> */}
+       
       </div>
     );
   }
