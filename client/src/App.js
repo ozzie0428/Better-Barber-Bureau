@@ -20,7 +20,7 @@ export default class App extends Component {
           <a href="/">
             <h3>Home</h3>
           </a>
-          <a href="/api/equipment">
+          <a href="/equipment">
             <h3>Euipment Store</h3>
           </a>
         </div>
