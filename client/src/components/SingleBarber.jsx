@@ -23,7 +23,7 @@ export default class SingleBarber extends Component {
 
   componentDidMount() {
     this.singleBarber();
-    this.singleBarberReviews();
+    // this.singleBarberReviews();
   }
 
   singleBarber = () => {
@@ -79,7 +79,7 @@ export default class SingleBarber extends Component {
 
   BarberDelete = barberId => {
     axios.delete(`/api/barber/${barberId}`).then(res => {
-     
+     console.log("response", res.data)
       this.setState({ isDeleted: true });
     });
   };
@@ -101,6 +101,7 @@ export default class SingleBarber extends Component {
             <div className="barber-location">
             <h2>Shop Location: {this.state.barber.location}</h2>
             <h2>Sevices Offered: {this.state.barber.servicesOffered}</h2>
+            <h2>Price: <strong> ${this.state.barber.price}</strong></h2> 
             </div>
             
           </div>
@@ -116,7 +117,7 @@ export default class SingleBarber extends Component {
           <Link to={`/api/review/${this.state.barber._id}`}>
             <button>Leave Review</button>
             <div className="delete-barber">
-          <button onClick={() => this.BarberDelete(this.state.barberId)}>
+          <button onClick={() => this.BarberDelete(this.state.barber._id)}>
           Delete Barber
         </button>
         </div>

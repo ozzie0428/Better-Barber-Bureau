@@ -48,23 +48,25 @@ export default class Equipment extends Component {
 		const equipmentList = this.state.equipmentList.map((equipment, i) => {
 		  return (
 			<div className="equipment-container" key={i}>
-			  <h1>
+			  <p>
 				<Link
 				  style={{ textDecoration: "none" }}
 				  to={`/api/equipment/${equipment._id}`}
 				>
 				  Name: {equipment.name}
 				</Link>
-			  </h1>
+			  </p>
+			  <div className="equipment-img">
 			  <img src={equipment.image} alt="equipment image" />
-			  <h2>Description:</h2> {equipment.description}
-			  <h3>Price: $ {equipment.price}  </h3>
+			  </div>
+			  <h2>Description:</h2> <p>{equipment.description}</p> 
+			  <h2>Price: $ {equipment.price}  </h2>
 			</div>
 		  );
 		});
 		return (
 		  <div>
-			<div>
+			<div className="equipment-input"> 
 			  <input
 				type="string"
 				name="newEquipmentName"
@@ -108,7 +110,9 @@ export default class Equipment extends Component {
 				flexWrap: "wrap"
 			  }}
 			>
+				<div className="equipment-parent">
 			  {equipmentList}
+			  </div>
 			</div>
 			
 		  </div>
