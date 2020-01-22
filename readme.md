@@ -1,31 +1,29 @@
-# mern-template-project
+# Better-Barber-Bureau
+ 
 
-# Setup A New Project From This Template
+## Overview
+Moving from Florida here to Atlanta, one of the biggest issues besides finding a place to stay was finding a barber that i could trust and for the rigth price.
 
-If you are starting a new project do the following:
+for project 3, I created fullstack app that allows clients to have a hub to post their barbers that have gone to, post pictures of their haircut, price and reviews of that specific barber. Also barbers can post and trade barber equipment to one another. 
 
-1. copy/download this directory to where you new project is located and rename
-   it to the name of your project.
-1. change your directory (`cd`) into the copied project template
-1. `npm install`
-1. `npm run dev`
-1. Open a new browser window and navigate to the URL http://localhost:3000/
-    here you should see `hello world` displayed after page load
-    updates should show up here automatically
-1. see the `client/src` `readme.md` file for more information on the react project
+Word of mouth is the best way to get the business buzzing, and with this app, the client will be able to get that barber buzzing and new clientele
+ 
 
-# Setup A New Project Without This Template
+## Technologies Used
+* HTML, CSS, Javascript
+* Node JS
+* MongoDB & Mongoose
+* express
+* Project Planning & User Stories - [Trello](https://trello.com/b/9mXiZtsk/better-barber-bureau).
 
-If you want to start a project without using this template directory do the
-following:
+## Online Resources
+* YouTube
+* Google
+* Stackoverflow
+* VS Code
 
+## Wireframe / ERD
+![Wireframe for Better-Barber-Bureau](https://wireframe.cc//pro/edit/305848)
 
-1. `mkdir <project-name>`
-1. `cd <project-name>`
-1. `echo "# <project-name>" > readme.md`
-1. `git init`
-1. `git add readme.md `
-1. `git commit -m "init repo with readme.md"`
-1. `npm init`
-1. `mkdir models views controllers`
-1. `touch ./server.js`
+![ERD for Better-Barber-Bureau](https://www.lucidchart.com/invitations/accept/05772575-2721-419c-a6bc-268a4b5e38b8)
+## [Better Barber Bureau](https://secure-scrubland-66981.herokuapp.com/)
