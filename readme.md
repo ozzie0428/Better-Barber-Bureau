@@ -26,4 +26,4 @@ Word of mouth is the best way to get the business buzzing, and with this app, th
 ![Wireframe for Better-Barber-Bureau](https://wireframe.cc//pro/edit/305848)
 
 ![ERD for Better-Barber-Bureau](https://www.lucidchart.com/invitations/accept/05772575-2721-419c-a6bc-268a4b5e38b8)
-## [Better Barber Bureau](https://secure-scrubland-66981.herokuapp.com/)
+## [Better Barber Bureau](https://stark-plains-92602.herokuapp.com/barber)
