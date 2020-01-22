@@ -51,7 +51,7 @@ export default class Equipment extends Component {
 			  <p>
 				<Link
 				  style={{ textDecoration: "none" }}
-				  to={`/api/equipment/${equipment._id}`}
+				  to={`/equipment/${equipment._id}`}
 				>
 				  Name: {equipment.name}
 				</Link>

@@ -87,7 +87,7 @@ export default class SingleBarber extends Component {
   render() {
     
     if (this.state.isDeleted === true) {
-      return <Redirect to="/api/barber" />;
+      return <Redirect to="/barber" />;
     }
   
     return (
@@ -114,7 +114,7 @@ export default class SingleBarber extends Component {
             Overall Rating:
             <strong>  {this.state.overallRating}
             </strong>  </h2>
-          <Link to={`/api/review/${this.state.barber._id}`}>
+          <Link to={`/review/${this.state.barber._id}`}>
             <button>Leave Review</button>
             <div className="delete-barber">
           <button onClick={() => this.BarberDelete(this.state.barber._id)}>

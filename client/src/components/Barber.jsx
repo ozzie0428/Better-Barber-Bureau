@@ -58,7 +58,7 @@ export default class Barber extends Component {
               <h1>
                 <Link
                   style={{ textDecoration: "none" }}
-                  to={`/api/barber/${barber._id}`}
+                  to={`/barber/${barber._id}`}
                 >
                   Name: {barber.name}
                 </Link>

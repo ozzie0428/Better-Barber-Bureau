@@ -54,17 +54,12 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/barber" component={Barber} />
+            <Route exact path="/barber/:barberId" component={SingleBarber} />
+            <Route path="/review/:barberId" component={Review} />
+            <Route exact path="/equipment" component={Equipment} />
             <Route
               exact
-              path="/api/barber/:barberId"
-              component={SingleBarber}
-            />
-            {/* <Route exact path= "/api/review" component={Review} /> */}
-            <Route path="/api/review/:barberId" component={Review} />
-            <Route exact path="/api/equipment" component={Equipment} />
-            <Route
-              exact
-              path="/api/equipment/:equipmentId"
+              path="/equipment/:equipmentId"
               component={SingleEquipment}
             />
           </Switch>
