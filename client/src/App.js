@@ -14,7 +14,7 @@ export default class App extends Component {
     return (
       <div>
         <div className="nav-bar">
-          <a href="/api/barber/">
+          <a href="/barber">
             <h3>Barbers</h3>
           </a>
           <a href="/">
@@ -49,12 +49,11 @@ export default class App extends Component {
           {/* <h1>Better Barber Bureau</h1> 
         
           <p>The place where to find a barber in your area without the hassle of </p> */}
-
         </div>
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/api/barber" component={Barber} />
+            <Route exact path="/barber" component={Barber} />
             <Route
               exact
               path="/api/barber/:barberId"
@@ -63,7 +62,10 @@ export default class App extends Component {
             {/* <Route exact path= "/api/review" component={Review} /> */}
             <Route path="/api/review/:barberId" component={Review} />
             <Route exact path="/api/equipment" component={Equipment} />
-            <Route exact path="/api/equipment/:equipmentId"component={SingleEquipment}
+            <Route
+              exact
+              path="/api/equipment/:equipmentId"
+              component={SingleEquipment}
             />
           </Switch>
         </Router>
