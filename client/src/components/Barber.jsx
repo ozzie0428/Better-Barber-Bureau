@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-
 export default class Barber extends Component {
   state = {
-    barberList: [] ,
+    barberList: [],
     newBarberName: "",
     location: "",
     servicesOffered: "",
@@ -14,12 +13,14 @@ export default class Barber extends Component {
     picture: "",
     reviews: []
   };
-    componentDidMount() {
-      this.updateBarberPage();
-    }
+  componentDidMount() {
+    this.updateBarberPage();
+  }
 
   updateBarberPage = () => {
     axios.get("/api/barber").then(res => {
+      console.log("TCL: Barber -> updateBarberPage -> res", res.data);
+
       this.setState({ barberList: res.data });
     });
   };
@@ -50,31 +51,30 @@ export default class Barber extends Component {
   };
 
   render() {
-    
-    const barberList = this.state.barberList && this.state.barberList.map((barber, i) => {
-      return (
-        <div className="barber-container" key={i}>
-          <div>
+    // const barberList = this.state.barberList && this.state.barberList.map((barber, i) => {
+    //   return (
+    //     <div className="barber-container" key={i}>
+    //       <div>
 
-          <h1>
-            <Link
-              style={{ textDecoration: "none" }}
-              to={`/api/barber/${barber._id}`}
-            >
-              Name: {barber.name}
-            </Link>
-          </h1>
-          
-          </div>
-          <img className="barber-img" src={barber.picture} alt="barber image" />
-          <div>
+    //       <h1>
+    //         <Link
+    //           style={{ textDecoration: "none" }}
+    //           to={`/api/barber/${barber._id}`}
+    //         >
+    //           Name: {barber.name}
+    //         </Link>
+    //       </h1>
 
-          <h2>Location: <br/>
-          {barber.location}</h2>
-          </div>
-        </div>
-      );
-    });
+    //       </div>
+    //       <img className="barber-img" src={barber.picture} alt="barber image" />
+    //       <div>
+
+    //       <h2>Location: <br/>
+    //       {barber.location}</h2>
+    //       </div>
+    //     </div>
+    //   );
+    // });
     return (
       <div>
         <div className="barber-input">
@@ -102,7 +102,7 @@ export default class Barber extends Component {
             onChange={this.handleChange}
             value={this.state.servicesOffered}
           />
-        
+
           <input
             type="string"
             name="price"
@@ -121,7 +121,7 @@ export default class Barber extends Component {
           />
           <button onClick={this.createBarber}>Add Barber</button>
         </div>
-        
+
         <div
           className="barberParent"
           style={{
@@ -130,9 +130,8 @@ export default class Barber extends Component {
             flexWrap: "wrap"
           }}
         >
-          {barberList}
+          {/* {barberList} */}
         </div>
-       
       </div>
     );
   }
