@@ -43,17 +43,17 @@ export default class EquipmentItem extends Component {
         
           return (
 
-            <div>
-              <h1>Equipment</h1>
-            
+            <div className="single-equip-container">
               
-              <div style={{ width: "12vw" }}>
+            
+                  <h1>Name: {this.state.equipment.name}</h1>
+              
+              <div>
+                <div className="single-equip-img">
                 <img src={this.state.equipment.image} alt="picture-of-equipment" />
-                <div style={{width: "35vw"}}>
-                  <h3>Name: {this.state.equipment.name}</h3>
-                  <h3>Description: {this.state.equipment.description}</h3>
-                  <h3>Price: {this.state.equipment.price}</h3>
                 </div>
+                  <h3>Price: {this.state.equipment.price}</h3>
+                  <h3>Description: <br/> {this.state.equipment.description}</h3>
               </div>
              
               {/* 

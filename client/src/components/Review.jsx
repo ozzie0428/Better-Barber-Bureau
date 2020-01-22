@@ -89,7 +89,9 @@ export default class Review extends Component {
           <div className="comment-container">
             <h1>Comments:</h1>
             {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, facere numquam. <br/> Magnam explicabo ipsam laudantium. Sint, modi rem debitis maiores repellendus, <br/> recusandae eaque molestiae asperiores pariatur illum dolorem veritatis alias.</p> */}
+           <div className="comment-list">
             {commentList}
+            </div>
           </div>
 
           <div className="review-container">
@@ -97,7 +99,9 @@ export default class Review extends Component {
               <a href={`/api/barber/${this.props.match.params.barberId}`}>Back To Barber</a>
 
             </div>
-            <div>
+            <div className="review-input">
+              <div>
+                <h3>Cleanliness : {this.state.cleanliness} </h3>
               <input
                 type="number"
                 name="cleanliness"
@@ -106,9 +110,9 @@ export default class Review extends Component {
                 onChange={this.handleChange}
                 value={this.state.cleanliness}
               />
-              <h3>Cleanliness : {this.state.cleanliness} </h3>
             </div>
             <div>
+              <h3>Accuracy : {this.state.accuracy}</h3>
               <input
                 type="number"
                 name="accuracy"
@@ -117,9 +121,9 @@ export default class Review extends Component {
                 onChange={this.handleChange}
                 value={this.state.accuracy}
               />
-              <h3>Accuracy : {this.state.accuracy}</h3>
             </div>
             <div>
+              <h3>Comment :</h3>
               <input
                 type="string"
                 name="comment"
@@ -127,6 +131,7 @@ export default class Review extends Component {
                 required="required"
                 onChange={this.handleChange}
                 value={this.state.comment}
+                
               />
             </div>
               <button onClick={this.createReview}>Submit Comment</button>
@@ -141,6 +146,7 @@ export default class Review extends Component {
               />
               <h3>Overall Rating : {this.state.overallRating}</h3>
             </div> */}
+          </div>
           </div>
         </div>
       </div>
