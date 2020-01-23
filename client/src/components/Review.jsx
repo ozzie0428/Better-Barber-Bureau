@@ -90,7 +90,7 @@ export default class Review extends Component {
 
           <div className="review-container">
             <div className="review-btn">
-              <a href={`/api/barber/${this.props.match.params.barberId}`}>Back To Barber</a>
+              <a href={`/barber/${this.props.match.params.barberId}`}>Back To Barber</a>
 
             </div>
             <div className="review-input">
